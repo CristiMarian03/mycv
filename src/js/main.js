@@ -1,3 +1,9 @@
+
+import $ from 'jquery';
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;
+import GLightbox from 'glightbox';
+
 (function () {
     "use strict";
 
@@ -172,9 +178,9 @@
     /**
      * Initiate portfolio lightbox 
      */
-    // const portfolioLightbox = GLightbox({
-    //   selector: '.portfolio-lightbox'
-    // });
+    const portfolioLightbox = GLightbox({
+      selector: '.portfolio-lightbox'
+    });
 
     /**
      * Testimonials slider
@@ -256,15 +262,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Validate Message
-        const message = document.querySelector("textarea[name='message']");
-        if (message.value.trim() === "") {
-            valid = false;
-            alert("Please enter your message.");
-        }
+        // const message = document.querySelector("textarea[name='message']");
+        // if (message.value.trim() === "") {
+        //     valid = false;
+        //     alert("Please enter your message.");
+        // }
 
-        if (!valid) {
-            event.preventDefault();
-        }
+        // if (!valid) {
+        //     event.preventDefault();
+        // }
+        
+(function () {
+  
+    const forms = document.getElementsByClassName('.php-email-form')
+    Array.from(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()
     });
 });
 
