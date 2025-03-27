@@ -16,3 +16,7 @@ import "./js/particles.js";
 import "./js/main.js";
 
 import "./js/skills.js";
+
+import "./js/githubapi.js";
+
+import "./js/translate.js";

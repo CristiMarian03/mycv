@@ -1,0 +1,10 @@
+{
+    "title": "WebSite Building Bootstrap + Webpack + jQuery",
+    "meniu.home": "Home",
+    "meniu.about": "about",
+    "meniu.services": "services",
+    "meniu.work": "work",
+    "meniu.blog": "blog",
+    "meniu.contact": "contact",
+    "footer_text": "© 2023 Your Company. All rights reserved."
+}
