@@ -233,61 +233,24 @@ import GLightbox from 'glightbox';
     // new PureCounter();
 
 })()
-// incepe validarea de formular
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".php-email-form");
-    form.addEventListener("submit", function (event) {
-        let valid = true;
 
-        // Validate Name
-        const name = document.getElementById("name");
-        if (name.value.trim() === "") {
-            valid = false;
-            alert("Please enter your name.");
-        }
 
-        // Validate Email
-        const email = document.getElementById("email");
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        if (!emailPattern.test(email.value.trim())) {
-            valid = false;
-            alert("Please enter a valid email address.");
-        }
 
-        // Validate Subject
-        const subject = document.getElementById("subject");
-        if (subject.value.trim() === "") {
-            valid = false;
-            alert("Please enter a subject.");
-        }
-
-        // Validate Message
-        // const message = document.querySelector("textarea[name='message']");
-        // if (message.value.trim() === "") {
-        //     valid = false;
-        //     alert("Please enter your message.");
-        // }
-
-        // if (!valid) {
-        //     event.preventDefault();
-        // }
-        
-(function () {
+  (() => {
+    'use strict'
   
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
     const forms = document.getElementsByClassName('.php-email-form')
-    Array.from(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-})()
-    });
-});
-
-// s a terminat validarea de formular
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
